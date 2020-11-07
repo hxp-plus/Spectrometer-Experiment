@@ -23,8 +23,8 @@ double get_grating_constant(double wavelength, double theta) {
 }
 
 void diffraction_grating() {
-    const double **degree_minute = read_angular_data("../diffraction_grating.csv", 4, 19);
-    const double *wavelengths = read_wavelength_data("../diffraction_grating.csv", 4, 19);
+    const double **degree_minute = read_angular_data("../data/diffraction_grating.csv", 4, 19);
+    const double *wavelengths = read_wavelength_data("../data/diffraction_grating.csv", 4, 19);
     int dataset = 4;
     for (int i = 0; i < dataset; i++) {
         printf("\n[Start one set of diffraction grating data]\n");

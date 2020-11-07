@@ -30,7 +30,7 @@ double get_vertex_angle_vertex(const double *angle_degree, const double *angle_m
 double reflection_vertex() {
     int data_start_line = 2;
     int data_end_line = 21;
-    const double **degree_minute = read_angular_data("../vertex-angle-triangular-prism-reflection.csv",
+    const double **degree_minute = read_angular_data("../data/vertex-angle-triangular-prism-reflection.csv",
                                                      data_start_line, data_end_line);
     int data_size_per_set = (data_end_line - data_start_line) / 4;
     double vertex_data_set_1 =

@@ -30,7 +30,7 @@ double self_alignment_vertex() {
     int data_start_line = 2;
     int data_end_line = 17;
 
-    const double **degree_minute = read_angular_data("../vertex-angle-triangular-prism-self-alignment.csv",
+    const double **degree_minute = read_angular_data("../data/vertex-angle-triangular-prism-self-alignment.csv",
                                                      data_start_line, data_end_line);
     int data_size_per_set = (data_end_line - data_start_line) / 4;
     double vertex_data_set_1 =
