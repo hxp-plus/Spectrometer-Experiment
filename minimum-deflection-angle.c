@@ -23,14 +23,14 @@ double get_refractive_index(double vertex_angle,double deflection_angle) {
 }
 
 void minimum_deflection_angle(double vertex_angle) {
-    const double  ** degree_minute = read_angular_data("../minimum-deflection-angle.csv", 2, 17);
-    const double * wavelengths = read_wavelength_data("../minimum-deflection-angle.csv", 2, 17);
-    const int dataset=4;
-    for(int i=0; i<dataset ;i++) {
+    const double **degree_minute = read_angular_data("../minimum-deflection-angle.csv", 2, 17);
+    const double *wavelengths = read_wavelength_data("../minimum-deflection-angle.csv", 2, 17);
+    const int dataset = 4;
+    for (int i = 0; i < dataset; i++) {
         printf("\n[Start one set of minimum deflection data]\n");
-        printf("Wavelength: %f\n", wavelengths[i*4]);
+        printf("Wavelength: %f\n", wavelengths[i * 4]);
         double deflection_angle_1 = get_deflection_angle(degree_minute[0], degree_minute[1],
-                                                       i*4,i*4+2);
+                                                         i * 4, i * 4 + 2);
         printf("Deflection angle 1: %f\n", deflection_angle_1);
         double reflective_index_1 = get_refractive_index(vertex_angle, deflection_angle_1);
         printf("Reflective index 1: %f\n", reflective_index_1);
