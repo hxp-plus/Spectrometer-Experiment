@@ -7,7 +7,8 @@
 
 #include <stdio.h>
 #include <math.h>
-#include "readcsv.h"
+#include "read_data.h"
+#include "calculate_mean_of_angle.h"
 
 void self_alignment_vertex();
 

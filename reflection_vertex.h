@@ -7,7 +7,8 @@
 
 #include <stdio.h>
 #include <math.h>
-#include "readcsv.h"
+#include "calculate_mean_of_angle.h"
+#include "read_data.h"
 
 void reflection_vertex();
 
