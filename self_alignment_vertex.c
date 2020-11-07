@@ -10,9 +10,8 @@ double get_vertex_angle_self_alignment(const double *angle_degree, const double 
             angle_degree, angle_minute, offset_a, data_size_per_set);
     double angle_b = calculate_mean_of_angle(
             angle_degree, angle_minute, offset_b, data_size_per_set);
-    if (fabs(angle_b - angle_a) > 180)
-    {
-        if(angle_a > angle_b) {
+    if (fabs(angle_b - angle_a) > 180) {
+        if (angle_a > angle_b) {
             angle_b += 360;
         } else {
             angle_a += 360;

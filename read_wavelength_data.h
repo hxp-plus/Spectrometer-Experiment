@@ -4,6 +4,7 @@
 
 #ifndef SPECTROMETER_READ_WAVELENGTH_DATA_H
 #define SPECTROMETER_READ_WAVELENGTH_DATA_H
+
 #include "readcsv.h"
 #include <stdio.h>
 #include <stdlib.h>
