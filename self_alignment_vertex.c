@@ -5,13 +5,13 @@
 #include "self_alignment_vertex.h"
 #include "calculate_mean_of_angle.h"
 
-double get_vertex_angle_self_alignment(const double* angle_degree, const double* angle_minute,
+double get_vertex_angle_self_alignment(const double *angle_degree, const double *angle_minute,
                                        int offset_a, int offset_b, int data_size_per_set) {
     double angle_a = calculate_mean_of_angle(
             angle_degree, angle_minute, offset_a, data_size_per_set);
     double angle_b = calculate_mean_of_angle(
             angle_degree, angle_minute, offset_b, data_size_per_set);
-    if(fabs(angle_b - angle_a) > 180)
+    if (fabs(angle_b - angle_a) > 180)
         angle_b += 360;
     printf("\n------- start one set of self alignment method data: -------\n");
     printf("mean of angle a: %f degrees\n", angle_a);
@@ -30,12 +30,12 @@ void self_alignment_vertex() {
     printf("Reading self alignment Data...\n");
     const double *angle_degree = (read_lines(self_alignment_data, data_start_line, data_end_line, 2));
     printf("Read angle_degree Complete:\n");
-    for(
+    for (
             int i = data_start_line;
-            i<=
+            i <=
             data_end_line;
             i++) {
-        printf("%f\t", angle_degree[i-data_start_line]);
+        printf("%f\t", angle_degree[i - data_start_line]);
     }
     printf("\n");
     fclose(self_alignment_data);
@@ -43,12 +43,12 @@ void self_alignment_vertex() {
     self_alignment_data = fopen("../vertex-angle-triangular-prism-self-alignment.csv", "r");
     const double *angle_minute = (read_lines(self_alignment_data, data_start_line, data_end_line, 3));
     printf("Read angle_minute Complete:\n");
-    for(
+    for (
             int i = data_start_line;
-            i<=
+            i <=
             data_end_line;
             i++) {
-        printf("%f\t", angle_minute[i-data_start_line]);
+        printf("%f\t", angle_minute[i - data_start_line]);
     }
     printf("\n");
 

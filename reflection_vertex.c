@@ -5,18 +5,18 @@
 #include "reflection_vertex.h"
 #include "calculate_mean_of_angle.h"
 
-double get_vertex_angle_vertex(const double* angle_degree, const double* angle_minute,
-                                       int offset_a, int offset_b, int data_size_per_set) {
+double get_vertex_angle_vertex(const double *angle_degree, const double *angle_minute,
+                               int offset_a, int offset_b, int data_size_per_set) {
     double angle_a = calculate_mean_of_angle(
             angle_degree, angle_minute, offset_a, data_size_per_set);
     double angle_b = calculate_mean_of_angle(
             angle_degree, angle_minute, offset_b, data_size_per_set);
-    if(fabs(angle_b - angle_a) > 180)
+    if (fabs(angle_b - angle_a) > 180)
         angle_b += 360;
     printf("\n------- start one set of vertex method data: -------\n");
     printf("mean of angle a: %f degrees\n", angle_a);
     printf("mean of angle b: %f degrees\n", angle_b);
-    double vertex_angle = 0.5*fabs(angle_a - angle_b);
+    double vertex_angle = 0.5 * fabs(angle_a - angle_b);
     printf("vertex angle: %f\n", vertex_angle);
     printf("--------- end one set of vertex method data --------\n");
     return vertex_angle;
@@ -30,12 +30,12 @@ void reflection_vertex() {
     printf("Reading reflection Data...\n");
     const double *angle_degree = (read_lines(reflection_data, data_start_line, data_end_line, 2));
     printf("Read angle_degree Complete:\n");
-    for(
+    for (
             int i = data_start_line;
-            i<=
+            i <=
             data_end_line;
             i++) {
-        printf("%f\t", angle_degree[i-data_start_line]);
+        printf("%f\t", angle_degree[i - data_start_line]);
     }
     printf("\n");
     fclose(reflection_data);
@@ -43,12 +43,12 @@ void reflection_vertex() {
     reflection_data = fopen("../vertex-angle-triangular-prism-reflection.csv", "r");
     const double *angle_minute = (read_lines(reflection_data, data_start_line, data_end_line, 3));
     printf("Read angle_minute Complete:\n");
-    for(
+    for (
             int i = data_start_line;
-            i<=
+            i <=
             data_end_line;
             i++) {
-        printf("%f\t", angle_minute[i-data_start_line]);
+        printf("%f\t", angle_minute[i - data_start_line]);
     }
     printf("\n");
 
