@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include "self_alignment_vertex.h"
+#include "reflection_vertex.h"
 
 
 int main() {
-    self_alignment_data();
+    self_alignment_vertex();
+    reflection_vertex();
     return 0;
 }

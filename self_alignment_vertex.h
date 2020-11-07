@@ -7,9 +7,8 @@
 
 #include <stdio.h>
 #include <math.h>
-#include <gsl/gsl_statistics_double.h>
 #include "readcsv.h"
 
-void self_alignment_data();
+void self_alignment_vertex();
 
 #endif //SPECTROMETER_SELF_ALIGNMENT_VERTEX_H
