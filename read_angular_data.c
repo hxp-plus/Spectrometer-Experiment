@@ -2,11 +2,11 @@
 // Created by hxp on 2020-11-07.
 //
 
-#include "read_data.h"
+#include "read_angular_data.h"
 
-const double **read_data(char *filename, int data_start_line, int data_end_line) {
+const double **read_angular_data(char *filename, int data_start_line, int data_end_line) {
 
-    FILE *data = fopen("../vertex-angle-triangular-prism-reflection.csv", "r");
+    FILE *data = fopen(filename, "r");
     printf("Reading datafile:\"%s\"\n", filename);
     const double *angle_degree = (read_lines(data, data_start_line, data_end_line, 2));
     printf("Read angle_degree Complete:\n");

@@ -8,8 +8,8 @@
 #include <stdio.h>
 #include <math.h>
 #include "calculate_mean_of_angle.h"
-#include "read_data.h"
+#include "read_angular_data.h"
 
-void reflection_vertex();
+double reflection_vertex();
 
 #endif //SPECTROMETER_REFLECTION_VERTEX_H
