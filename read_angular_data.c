@@ -36,5 +36,6 @@ const double **read_angular_data(char *filename, int data_start_line, int data_e
     degree_minute[0] = angle_degree;
     degree_minute[1] = angle_minute;
     fclose(data);
+
     return degree_minute;
 }

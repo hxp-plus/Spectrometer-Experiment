@@ -1,0 +1,192 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 实验报告模板.tex                                              %%
+%% author: hxp<hxp201406@gmail.com>                           %%
+%% 按照基础物理实验老师发的模板更改形成                                       %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 备注：刚刚的注释刚好是80行，编写代码的时候不要超过80行，就是你的代码不要超 %%
+%% 过我注释里面最后面的“%”，超过请换行。                                    %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 模板现在开始，请根据注释把相应的位置更改成对应的内容                       %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\documentclass{ctexart}
+
+
+\usepackage{ctex}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{wasysym}
+\newcommand{\angstrom}{\text{\normalfont\AA}}  % 定义了原子物理的A
+\usepackage{graphicx}
+\usepackage{float}
+\restylefloat{table}
+\usepackage{geometry}
+\geometry{a4paper,scale=0.8}  % 定义页面大小是A4，缩放是0.8
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{enumitem}
+
+\newcommand*{\md}{\mathop{}\!\mathrm{d}}   % 定义微分算子，直立体的d
+\newcommand*{\me}{\mathrm{e}}              % 定义自然对数e，同样应当是直立体
+
+% 如果你想要每一段的开头不要空两格，注释掉下面这两行
+\usepackage{parskip}
+\setlength{\parindent}{0cm}
+
+% 默认的\mathbf对希腊字母不生效，这里改下
+\usepackage{bm}
+\let\Oldmathbf\mathbf
+\renewcommand{\mathbf}[1]{\boldsymbol{\Oldmathbf{#1}}}
+
+% 表格默认格内内容和边框没有留出距离，显示分数的时候，分数的上下会贴到边框上
+% 因此我增加了表格内容和边框的最短距离是5像素
+\usepackage{cellspace}
+\setlength{\cellspacetoplimit}{5pt}
+\setlength{\cellspacebottomlimit}{5pt}
+
+% \si命令是用来写单位的，单位需要和之前的数字有一个空格的距离，而且应当直立体
+% 用法：5 \si{km/h}
+\newcommand{\si}[1]{\  \mathrm{#1}}
+
+% 日期不要显示
+\date{}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{本文档TeX源码地址:https://github.com/hxp-plus/Notes/tree/master/Physics-Experiment/实验报告}
+\rfoot{第 \thepage 页}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+
+%% 标题三号黑体，作者信息为班级姓名学号
+\newcommand{\generatetitle}[6]{\title{\zihao{3}\heiti#1} \author{#2 \quad
+    \quad #3 \quad\quad #4 \quad\quad #5 \quad\quad #6} \maketitle\thispagestyle{fancy}}
+
+%% 所有的引言、实验内容与数据处理啥的，用section
+\ctexset {
+  section = {
+    format = \raggedright\zihao{4}\heiti,  % 设置所有section的字号为四号黑体左对齐
+    name={,、},                            % 序号后跟顿号
+    aftername={\hspace{0pt}},              % 修改序号和标题直接的间距为零
+    number=\chinese{section},              % 设置序号为中文
+  },
+  subsection = {
+    format = \raggedright\zihao{5}\heiti,  % 设置所有subsection的字号为五号黑体左对齐
+    number={},              % 设置序号为没有序号
+  },
+  subsubsection = {
+    format = \raggedright\zihao{5}\heiti,  % 设置所有subsection的字号为五号黑体左对齐
+    number={},              % 设置序号为没有序号
+  }
+}
+
+%% 实验背景、实验目的啥的，用subsection
+\ctexset {
+  subsection = {
+    format = \raggedright\zihao{5}\heiti,  % 所有subsection的字号为五号黑体左对齐
+    number={},                             % 设置序号为没有序号
+  }
+}
+
+%% 把subsection之间加上中括号
+\let\oldsubsection\subsection
+\renewcommand{\subsection}[1]{\oldsubsection{\!\!\!\!\!\!【#1】}}
+\let\oldsubsubsection\subsubsection
+\renewcommand{\subsubsection}[1]{\oldsubsubsection{\!\!\!\!\!\!【#1】}}
+
+%% 摘要和关键词用paragraph
+
+\ctexset {
+  paragraph = {
+    format = \raggedright\zihao{5}\heiti,  % 所有paragraph的字号为五号黑体左对齐
+    number={},                             % 设置序号为没有序号
+  }
+}
+
+%% 把paragraph之间加上中括号
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1：\!\!\!\!\!\!}}
+
+%% 再把参考文献的序号去掉
+\makeatletter
+\renewcommand\@biblabel[1]{}
+\makeatother
+
+\begin{document}
+
+\generatetitle{综合物理实验报告——
+  分光计的调整与应用}{物理4+4}{胡喜平}{U201811966}{hxp201406@gmail.com}{https://hxp.plus/}
+
+\paragraph{摘要}
+这个我不会写。
+
+% 关键词
+\paragraph{关键词}
+自己想去，不会
+
+\section{引言}
+\subsection{实验目的}
+
+这个也不会写。
+
+\section{实验内容与数据处理}
+\subsection{实验原理}
+
+你去抄预习报告吧我就不写了。
+
+\subsection{实验内容}
+
+\subsection{实验结果的分析和结论}
+
+\subsubsection{自准法测量三棱镜顶角数据}
+
+用一个游标测得的数据如下：
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+     测量次数           & 1 & 2 & 3 & 4 & 5 
+     \\\hline
+     转动前的角度 {{ angle }}\\\hline
+     转动后的角度 {{ angle }}\\\hline
+  \end{tabular}
+  \caption{自准法测量三棱镜顶角数据}
+\end{table}
+
+计算得出转动前角度平均值为：{{ angle-a-avg }} \\
+计算得出转动后角度平均值为：{{ angle-b-avg }} \\
+进而计算得出三棱镜顶角为：{{ vertex }} \\
+
+用另一个游标测得的数据如下：
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+     测量次数           & 1 & 2 & 3 & 4 & 5 \\\hline
+     转动前的角度 {{ angle }}\\\hline
+     转动后的角度 {{ angle }}\\\hline
+  \end{tabular}
+  \caption{自准法测量三棱镜顶角数据}
+\end{table}
+
+计算得出转动前角度平均值为：{{ angle-a-avg }} \\
+计算得出转动后角度平均值为：{{ angle-b-avg }} \\
+进而计算得出三棱镜顶角为：{{ vertex }} \\
+两次计算的平均顶角为：{{ vertex-avg }}
+
+\subsubsection{反射法测量三棱镜顶角数据}
+
+\subsubsection{测量最小偏向角}
+
+\subsubsection{测量光栅常数}
+
+\section{参考文献}
+\begin{itemize}[leftmargin=0pt]
+  \item[] 综合物理实验讲义
+\end{itemize}
+\end{document} 
