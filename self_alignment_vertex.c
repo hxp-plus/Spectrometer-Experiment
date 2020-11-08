@@ -21,13 +21,15 @@ double get_vertex_angle_self_alignment(const double *angle_degree, const double 
     printf("mean of angle a: %f degrees\n", angle_a);
     char *cmd = malloc(sizeof(char) * 1024);
     sprintf(cmd,
-            "sed -i '0,/{{ angle-a-avg }}/s/{{ angle-a-avg }}/$%f^\\\\circ$/' '/home/hxp/Desktop/分光计实验报告.tex'",
+            "sed -i '0,/{{ angle-a-avg }}/"
+            "s/{{ angle-a-avg }}/$%f^\\\\circ$/' '/home/hxp/Desktop/分光计实验报告.tex'",
             angle_a);
     system(cmd);
 
     printf("mean of angle b: %f degrees\n", angle_b);
     sprintf(cmd,
-            "sed -i '0,/{{ angle-b-avg }}/s/{{ angle-b-avg }}/$%f^\\\\circ$/' '/home/hxp/Desktop/分光计实验报告.tex'",
+            "sed -i '0,/{{ angle-b-avg }}/"
+            "s/{{ angle-b-avg }}/$%f^\\\\circ$/' '/home/hxp/Desktop/分光计实验报告.tex'",
             angle_b);
     system(cmd);
 
@@ -45,7 +47,8 @@ void write_data_to_latex_self_alignment(const double *degree, const double *minu
     for (int i = 0; i < data_size_per_set; i++) {
         char *cmd = malloc(sizeof(char) * 1024);
         sprintf(cmd,
-                "sed -i '0,/{{ angle }}/s/{{ angle }}/\\&$%d^\\\\circ %d^\\\\prime${{ angle }}/' '/home/hxp/Desktop/分光计实验报告.tex'",
+                "sed -i '0,/{{ angle }}/"
+                "s/{{ angle }}/\\&$%d^\\\\circ %d^\\\\prime${{ angle }}/' '/home/hxp/Desktop/分光计实验报告.tex'",
                 (int) degree[4 * i + offset],
                 (int) minute[4 * i + offset]);
         system(cmd);
@@ -65,9 +68,11 @@ double self_alignment_vertex() {
     write_data_to_latex_self_alignment(degree_minute[0], degree_minute[1], 1, data_size_per_set);
     write_data_to_latex_self_alignment(degree_minute[0], degree_minute[1], 3, data_size_per_set);
     double vertex_data_set_1 =
-            get_vertex_angle_self_alignment(degree_minute[0], degree_minute[1], 0, 2, data_size_per_set);
+            get_vertex_angle_self_alignment(
+                    degree_minute[0], degree_minute[1], 0, 2, data_size_per_set);
     double vertex_data_set_2 =
-            get_vertex_angle_self_alignment(degree_minute[0], degree_minute[1], 1, 3, data_size_per_set);
+            get_vertex_angle_self_alignment(
+                    degree_minute[0], degree_minute[1], 1, 3, data_size_per_set);
     double mean_vertex_angle_alignment = (vertex_data_set_1 + vertex_data_set_2) / 2.0;
     printf("\nmean of vertex angle (self alignment method): %f\n", mean_vertex_angle_alignment);
     char *cmd = malloc(sizeof(char) * 1024);
