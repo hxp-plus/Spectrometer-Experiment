@@ -33,7 +33,6 @@ double get_vertex_angle_self_alignment(const double *angle_degree, const double 
 
     double vertex_angle = 180 - fabs(angle_a - angle_b);
     printf("vertex angle: %f\n", vertex_angle);
-    printf("mean of angle b: %f degrees\n", angle_b);
     sprintf(cmd,
             "sed -i '0,/{{ vertex }}/s/{{ vertex }}/$%f^\\\\circ$/' '/home/hxp/Desktop/分光计实验报告.tex'",
             vertex_angle);
@@ -42,7 +41,7 @@ double get_vertex_angle_self_alignment(const double *angle_degree, const double 
     return vertex_angle;
 }
 
-void write_data_to_latex(const double *degree, const double *minute, int offset, int data_size_per_set) {
+void write_data_to_latex_self_alignment(const double *degree, const double *minute, int offset, int data_size_per_set) {
     for (int i = 0; i < data_size_per_set; i++) {
         char *cmd = malloc(sizeof(char) * 1024);
         sprintf(cmd,
@@ -61,10 +60,10 @@ double self_alignment_vertex() {
     const double **degree_minute = read_angular_data("../data/vertex-angle-triangular-prism-self-alignment.csv",
                                                      data_start_line, data_end_line);
     int data_size_per_set = (data_end_line - data_start_line + 1) / 4;
-    write_data_to_latex(degree_minute[0], degree_minute[1], 0, data_size_per_set);
-    write_data_to_latex(degree_minute[0], degree_minute[1], 2, data_size_per_set);
-    write_data_to_latex(degree_minute[0], degree_minute[1], 1, data_size_per_set);
-    write_data_to_latex(degree_minute[0], degree_minute[1], 3, data_size_per_set);
+    write_data_to_latex_self_alignment(degree_minute[0], degree_minute[1], 0, data_size_per_set);
+    write_data_to_latex_self_alignment(degree_minute[0], degree_minute[1], 2, data_size_per_set);
+    write_data_to_latex_self_alignment(degree_minute[0], degree_minute[1], 1, data_size_per_set);
+    write_data_to_latex_self_alignment(degree_minute[0], degree_minute[1], 3, data_size_per_set);
     double vertex_data_set_1 =
             get_vertex_angle_self_alignment(degree_minute[0], degree_minute[1], 0, 2, data_size_per_set);
     double vertex_data_set_2 =
