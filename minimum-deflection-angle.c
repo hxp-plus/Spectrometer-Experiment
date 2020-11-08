@@ -23,6 +23,13 @@ double get_refractive_index(double vertex_angle, double deflection_angle) {
 }
 
 void minimum_deflection_angle(double vertex_angle) {
+    char *cmd = malloc(sizeof(char) * 1024);
+    sprintf(cmd,
+            "sed -i '0,/{{ vertex }}/"
+            "s/{{ vertex }}/$%f^\\\\circ$/' "
+            "'/home/hxp/Desktop/分光计实验报告.tex'",
+            vertex_angle);
+    system(cmd);
     const double **degree_minute = read_angular_data(
             "../data/minimum-deflection-angle.csv", 2, 17);
     const double *wavelengths = read_wavelength_data(
